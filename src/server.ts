@@ -45,4 +45,5 @@ declare global {
  * npx prisma init
  * npx prisma migrate dev --name init
  * npx prisma format
+ * npx prisma studio --> visual representation of database 
  */

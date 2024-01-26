@@ -1,8 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
-import { createJWT, hashPassword } from "../modules/auth";
-import prisma from "../modules/db";
 import config from "../config";
 import UserRepository from "../repository/user-repository";
 

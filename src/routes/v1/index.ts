@@ -1,5 +1,7 @@
 import express from 'express'
 import { createUser} from '../../controllers/user-controller'
+import { productValidationRules, validateProduct } from '../../middlewares/product-middleware';
+import { param, query } from 'express-validator';
 
 const router = express.Router();
 
@@ -9,14 +11,16 @@ router.post('/user',createUser)
 
 // products
 
-router.get('/product',(req,res)=>{
-    return res.status(200).json({
+router.get('/product',productValidationRules(),validateProduct,(req,res)=>{
+    res.status(200).json({
         data:req.secret
     })
 })
 
-router.get('/product/:id',(req,res)=>{
-
+router.get('/product/:id',param('id').isNumeric().withMessage('invalid product id'),validateProduct,(req,res)=>{
+    res.status(222).json({
+        "name":"df"
+    })
 })
 
 router.put('/product/:id',(req,res)=>{
